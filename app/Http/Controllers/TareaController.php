@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
 use App\Models\Tarea;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -22,11 +24,12 @@ class TareaController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create():View
     {
-        //
+        $estados = Estado::all();
+        return \view('tareas.create',compact('estados'));
     }
 
     /**
