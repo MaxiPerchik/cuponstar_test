@@ -49,7 +49,6 @@ class TareaController extends Controller
     }
 
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,7 +58,7 @@ class TareaController extends Controller
     public function edit(Tarea $tarea)
     {
         $estados = Estado::all();
-        return \view('tareas.edit', compact('tarea','estados'));
+        return \view('tareas.edit', compact('tarea', 'estados'));
     }
 
     /**

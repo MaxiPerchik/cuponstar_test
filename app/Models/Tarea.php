@@ -10,4 +10,9 @@ class Tarea extends Model
     use HasFactory;
 
     protected $fillable = ['titulo', 'descripcion', 'estado_id'];
+
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
+    }
 }

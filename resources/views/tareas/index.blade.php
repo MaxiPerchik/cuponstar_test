@@ -16,6 +16,7 @@
                         <tr>
                             <th>Tareas</th>
                             <th>Descripci&oacute;n</th>
+                            <th>Estado</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,7 @@
                             <tr>
                                 <td>{{ $tarea->titulo }}</td>
                                 <td>{{ $tarea->descripcion }}</td>
+                                <td>{{ $tarea->estado->estado }}</td>
                                 <td class="flex">
                                     <a class="inline-flex items-center ml-4 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
                                        href="{{ route('tareas.edit', $tarea) }}"> Editar</a>
