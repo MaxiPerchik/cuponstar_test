@@ -67,11 +67,16 @@ class TareaController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Tarea $tarea
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Tarea $tarea)
     {
-        //
+        $tarea->update([
+            'titulo' => $request->input('titulo'),
+            'descripcion' => $request->input('descripcion'),
+            'estado_id' => $request->input('estado_id'),
+        ]);
+        return redirect()->route('tareas.index');
     }
 
     /**
