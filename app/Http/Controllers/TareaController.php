@@ -76,7 +76,7 @@ class TareaController extends Controller
      * @param \App\Models\Tarea $tarea
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Tarea $tarea)
+    public function update(TareasStoreRequest $request, Tarea $tarea)
     {
         $tarea->update([
             'titulo' => $request->input('titulo'),
