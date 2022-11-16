@@ -56,6 +56,10 @@ class TareaController extends Controller
         return redirect()->route('tareas.index');
     }
 
+    public function show($id)
+    {
+        return Tarea::findOrFail($id)->get();
+    }
 
     /**
      * Show the form for editing the specified resource.
