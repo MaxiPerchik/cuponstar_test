@@ -25,11 +25,11 @@ class EstadoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+       return \view('estados.create');
     }
 
     /**
