@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estado;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -55,12 +56,12 @@ class EstadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Estado $estado
-     * @return Response
+     * @param Estado $estado
+     * @return Application
      */
     public function edit(Estado $estado)
     {
-        //
+        return \view('estados.edit',compact('estado'));
     }
 
     /**
