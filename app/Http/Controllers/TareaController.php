@@ -48,26 +48,18 @@ class TareaController extends Controller
         return redirect()->route('tareas.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Tarea $tarea
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tarea $tarea)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Tarea $tarea
-     * @return \Illuminate\Http\Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Tarea $tarea)
     {
-        //
+        $estados = Estado::all();
+        return \view('tareas.edit', compact('tarea','estados'));
     }
 
     /**

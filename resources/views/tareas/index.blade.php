@@ -15,7 +15,7 @@
                         <thead>
                         <tr>
                             <th>Tareas</th>
-                            <th></th>
+                            <th>Descripci&oacute;n</th>
                         </tr>
                         </thead>
                         <tbody>
