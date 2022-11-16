@@ -9,12 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    @if($errors -> any())
+                        <div class="alert alert-danger">
+                            <p>UPS! something went wrong:</p>
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('tareas.store') }}">
                         @csrf
                         @method('POST')
-                        Titulo:
-                        <br>
-                        <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="titulo">
+                        <x-input-label for="titulo" :value="__('Titulo')"></x-input-label>
+                        <x-text-input name="titulo" type="text" class="mt-1 block w-10" autofocus></x-text-input>
+                        {{--                        <x-input-error class="mt-2" :messages="$errors->get('titulo')"></x-input-error>--}}
                         <br><br>
                         Descrpcion:
                         <br>

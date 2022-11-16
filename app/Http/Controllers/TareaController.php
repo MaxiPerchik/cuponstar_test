@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TareasStoreRequest;
 use App\Models\Estado;
 use App\Models\Tarea;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -35,11 +37,17 @@ class TareaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param TareasStoreRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(TareasStoreRequest $request): RedirectResponse
     {
+//        $request->validate([
+//            'titulo' => 'required',
+//            'descripcion' => 'required',
+//            'estado_id' => 'required'
+//        ]);
+
         Tarea::create([
             'titulo' => $request->input('titulo'),
             'descripcion' => $request->input('descripcion'),
@@ -64,7 +72,7 @@ class TareaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param \App\Models\Tarea $tarea
      * @return \Illuminate\Http\RedirectResponse
      */
