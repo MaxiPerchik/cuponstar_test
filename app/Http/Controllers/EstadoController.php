@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estado;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -69,11 +70,15 @@ class EstadoController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Estado $estado
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Estado $estado)
+    public function update(Request $request, Estado $estado): RedirectResponse
     {
-        //
+        //usamos metodo eloquent
+        $estado->update([
+            'estado' => $request->input('estado')
+        ]);
+        return redirect()->route('estados.index');
     }
 
     /**
