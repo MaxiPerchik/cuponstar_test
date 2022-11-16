@@ -83,10 +83,11 @@ class TareaController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Tarea $tarea
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Tarea $tarea)
     {
-        //
+        $tarea->delete();
+        return redirect()->route('tareas.index');
     }
 }
