@@ -78,10 +78,11 @@ class EstadoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Estado $estado
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy(Estado $estado)
+    public function destroy(Estado $estado): RedirectResponse
     {
-        //
+       $estado->delete();
+      return  redirect()->route('estados.index');
     }
 }
