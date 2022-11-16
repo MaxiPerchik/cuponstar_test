@@ -25,9 +25,9 @@ class EstadoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
        return \view('estados.create');
     }
@@ -35,32 +35,25 @@ class EstadoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+       Estado::create([
+           'estado'=>$request-> input('estado')
+       ]);
+       return redirect()->route('estados.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Estado $estado
-     * @return Response
-     */
-    public function show(Estado $estado)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param Estado $estado
-     * @return Application
+     * @return View
      */
-    public function edit(Estado $estado)
+    public function edit(Estado $estado): View
     {
         return \view('estados.edit',compact('estado'));
     }
@@ -68,9 +61,9 @@ class EstadoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Estado $estado
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @param Estado $estado
+     * @return RedirectResponse
      */
     public function update(Request $request, Estado $estado): RedirectResponse
     {
@@ -84,7 +77,7 @@ class EstadoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Estado $estado
+     * @param Estado $estado
      * @return Response
      */
     public function destroy(Estado $estado)
