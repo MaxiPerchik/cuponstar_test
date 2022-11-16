@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     @if($errors -> any())
                         <div class="alert alert-danger">
-                            <p>UPS! something went wrong:</p>
+                            <p>UPS! algo salio mal</p>
                         </div>
                     @endif
                     <form method="POST" action="{{ route('tareas.store') }}">
@@ -19,14 +19,13 @@
                         @method('POST')
                         <x-input-label for="titulo" :value="__('Titulo')"></x-input-label>
                         <x-text-input name="titulo" type="text" class="mt-1 block w-10" autofocus></x-text-input>
-                        {{--                        <x-input-error class="mt-2" :messages="$errors->get('titulo')"></x-input-error>--}}
-                        <br><br>
-                        Descrpcion:
+                        <x-input-error class="mt-2" :messages="$errors->get('titulo')"></x-input-error>
                         <br>
-                        <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="descripcion">
-                        <br><br>
-                        Estado:
+                        <x-input-label for="descripcion" :value="__('Descrpcion:')"></x-input-label>
+                        <x-text-input name="descripcion" type="text" class="mt-1 block w-10" autofocus></x-text-input>
+                        <x-input-error class="mt-2" :messages="$errors->get('descripcion')"></x-input-error>
                         <br>
+                        <x-input-label for="Estado " :value="__('Estado:')"></x-input-label>
                         <select name="estado_id" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                             @foreach($estados as $estado)
                                 <option value="{{ $estado->id }}">{{ $estado->estado }}</option>
