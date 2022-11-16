@@ -17,8 +17,8 @@ class TareaController extends Controller
      */
     public function index(): View
     {
-       $tareas = Tarea::all();
-       return view('tareas.index',compact('tareas'));
+        $tareas = Tarea::all();
+        return view('tareas.index', compact('tareas'));
     }
 
     /**
@@ -26,27 +26,32 @@ class TareaController extends Controller
      *
      * @return View
      */
-    public function create():View
+    public function create(): View
     {
         $estados = Estado::all();
-        return \view('tareas.create',compact('estados'));
+        return \view('tareas.create', compact('estados'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        Tarea::create([
+            'titulo' => $request->input('titulo'),
+            'descripcion' => $request->input('descripcion'),
+            'estado_id' => $request->input('estado_id'),
+        ]);
+        return redirect()->route('tareas.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tarea  $tarea
+     * @param \App\Models\Tarea $tarea
      * @return \Illuminate\Http\Response
      */
     public function show(Tarea $tarea)
@@ -57,7 +62,7 @@ class TareaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tarea  $tarea
+     * @param \App\Models\Tarea $tarea
      * @return \Illuminate\Http\Response
      */
     public function edit(Tarea $tarea)
@@ -68,8 +73,8 @@ class TareaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tarea  $tarea
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Tarea $tarea
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Tarea $tarea)
@@ -80,7 +85,7 @@ class TareaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tarea  $tarea
+     * @param \App\Models\Tarea $tarea
      * @return \Illuminate\Http\Response
      */
     public function destroy(Tarea $tarea)
