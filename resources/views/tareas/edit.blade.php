@@ -25,7 +25,7 @@
                         <x-text-input name="descripcion" type="text" class="mt-1 block w-10" :value="old('descripcion', $tarea->descripcion)" required autofocus autocomplete="tarea"></x-text-input>
                         <x-input-error class="mt-2" :messages="$errors->get('descripcion')"></x-input-error>
                         <br>
-                        <x-input-label for="estado_id" :value="__('Descripcion')"></x-input-label>
+                        <x-input-label for="estado_id" :value="__('Estado')"></x-input-label>
                         <select name="estado_id" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                             @foreach($estados as $estado)
                                 <option value="{{ $estado->id }} @selected($estado->id == $tarea->estad_id)">{{ $estado->estado }}</option>
